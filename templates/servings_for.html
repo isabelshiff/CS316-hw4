@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %} 
+<p>Beer: {{beer_name}}</p> 
+<p>Servings:
+    <table> 
+    <tr>
+        <td>Bar Name</td>
+        <td>Bar Address</td>
+        <td>Price</td>
+    </tr>
+    {% for serve, bar in data %} 
+    <tr>
+        <!-- can add these below once app.py results has been done -->
+        <td> ​{% data. %} </td>  
+        <td> ​@TODO​ </td>
+        <td> ​@TODO​ </td>
+    </tr>
+    {% endfor %} 
+</table>
+{% endblock %}
