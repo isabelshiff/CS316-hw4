@@ -13,6 +13,21 @@ def all_drinkers():
     drinkers = db.session.query(models.Drinker).all()
     return render_template('all-drinkers.html', drinkers=drinkers)
 
+@app.route('/serves', methods=['GET', 'POST']) 
+def serves():
+    beer_names = ​db.session.query(models.Serves).all()
+    form = forms.ServingsFormFactory.form(beer_names) 
+    if form.​@validate_on_submit():
+        return ​redirect('/servings/' + form.beer_sel.data) 
+    return render_template('serves.html', form=form)
+
+@app.route('/servings/<beer_name>') 
+def servings_for(beer_name):
+    results = db.session.query(models.Serves, models.Bar) \ 
+        .filter(​models.Serves.beer == beer_name).one() \
+        .join(models.Bar.name == models.Serves.bar)​.all()
+    return render_template('servings_for.html', beer_name=beer_name, data=results)
+
 @app.route('/drinker/<name>')
 def drinker(name):
     drinker = db.session.query(models.Drinker)\
