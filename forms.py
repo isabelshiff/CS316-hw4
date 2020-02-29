@@ -48,4 +48,3 @@ class ServingsFormFactory:
         class F(FlaskForm):
             beer_sel = SelectField('Beer Name', choices= db.session.query(models.Beer.name).all() )
             submit = SubmitField('Submit')
-        return F() 
