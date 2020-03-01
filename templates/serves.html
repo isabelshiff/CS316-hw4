@@ -6,12 +6,9 @@
   <p>{{form.beer_sel.label}}
     <br>
     <select id="beers">
-      <option value="amstel">Amstel</option>
-      <option value="budweiser">Budweiser</option>
-      <option value="corona">Corona</option>
-      <option value="dixie">Dixie</option>
-      <option value="erdinger">Erdinger</option>
-      <option value="fullsail">Full Sail</option>
+      {% for beer in form.beer_sel.data %}
+      <option value="">{% form.name %}</option>
+      {% endfor %}
     </select>
   </p> 
   <p>​<input type="submit" value="Submit"/></p>
