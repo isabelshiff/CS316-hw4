@@ -10,10 +10,9 @@
     </tr>
     {% for serve, bar in data %} 
     <tr>
-        <td> ​{% data.name %} </td>  
-        <td> ​{% data.address %} </td>
-        <!-- did not see data.price in app.py but may still be there -->
-        <td> ​{% data.price %} </td>
+        <td> ​{{bar.name}} </td>  
+        <td> ​{{bar.address}} </td>
+        <td> ​{{serve.price}} </td>
     </tr>
     {% endfor %} 
 </table>
