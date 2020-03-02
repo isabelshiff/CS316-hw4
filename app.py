@@ -18,7 +18,7 @@ def serves():
     beer_names = [b.name for b in db.session.query(models.Beer).all()]
     form = forms.ServingsFormFactory.form(beer_names=beer_names) 
     if form.validate_on_submit():
-        return redirect('servings/', form.beer_sel.data)
+        return redirect('servings/' + form.beer_sel.data)
     return render_template('serves.html', form=form)
 
 @app.route('/servings/<beer_name>') 
